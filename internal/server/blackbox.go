@@ -22,7 +22,7 @@ type FromOrder struct {
 	Accrual float32 `json:"accrual"`
 }
 
-//func (o *ToOrder) postOrder(order int, url string) int {
+// func (o *ToOrder) postOrder(order int, url string) int {
 //	// 202 - accepted,  409 - conflict, 400 - bad request
 //	// Оборачиваем order в json
 //	var ord ToOrder

@@ -58,7 +58,7 @@ func (a *App) getAllTransactionsByUserID(w http.ResponseWriter, r *http.Request)
 // addTransaction POST /api/user/orders (200, 202, 400, 401, 409, 422, 500)
 func (a *App) addTransaction(w http.ResponseWriter, r *http.Request) {
 	var item model.Transactions
-	//var order ToOrder
+	// var order ToOrder
 	var res int
 	// user id
 	uid, err := getUID(r)
@@ -79,11 +79,11 @@ func (a *App) addTransaction(w http.ResponseWriter, r *http.Request) {
 		_ = Body.Close()
 	}(r.Body)
 	log.Info("POST order number: ", orderNumber)
-	//url := &a.Cfg.AccrualSystemAddress
-	//bbStatus := order.postOrder(orderNumber, *url)
-	//log.Info("POST order status: ", bbStatus)
-	//switch bbStatus {
-	//case model.OrderAccepted:
+	// url := &a.Cfg.AccrualSystemAddress
+	// bbStatus := order.postOrder(orderNumber, *url)
+	// log.Info("POST order status: ", bbStatus)
+	// switch bbStatus {
+	// case model.OrderAccepted:
 	res, err = item.AddTransaction(a.DB, orderNumber, uid)
 	if err != nil {
 		MyError("error add transaction", err)
@@ -103,11 +103,11 @@ func (a *App) addTransaction(w http.ResponseWriter, r *http.Request) {
 		log.Info("Print to Header: ", res)
 		return
 		//}
-		//case model.AlienOrderNum:
+		// case model.AlienOrderNum:
 		//	w.WriteHeader(model.OrderAccepted)
 		//	log.Info("from BlackBox Print to Header: ", model.OrderAccepted)
 		//	return
-		//case model.WrongQueryFormat:
+		// case model.WrongQueryFormat:
 		//	w.WriteHeader(model.WrongOrderNum)
 		//	log.Info("from BlackBox Print to Header: ", model.WrongOrderNum)
 	}
