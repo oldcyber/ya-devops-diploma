@@ -23,7 +23,7 @@ func main() {
 
 	a := server.App{}
 	a.Cfg = cfg
-	a.Queue = make(chan int)
+	a.Queue = make(chan int, 20)
 
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
